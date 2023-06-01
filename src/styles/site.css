@@ -35,7 +35,7 @@ section {
     background: linear-gradient(135deg, #1d1e21 0, #3e4246 100%);
     width: 100%;
     margin: 0;
-    padding: var(--spacing);
+    padding: var(--spacing) var(--spacing) calc(var(--spacing) * 2);
     box-sizing: border-box;
     min-height: 600px;
 }
@@ -51,7 +51,6 @@ section {
 }
 
 h1 {
-    color: #fff;
     font-size: 36px;
     font-weight: 200;
 }
@@ -60,10 +59,50 @@ h2 {
     color: #fff;
     font-size: 24px;
     font-weight: 200;
+    margin: var(--spacing) 0 var(--spacing);
 }
 
 h3 {
     margin: 0;
     font-weight: 200;
     color: #fff;
+}
+
+a {
+    color: inherit;
+}
+
+a:not(.call-to-action):hover {
+    color: var(--accent);
+    animation: pulse 1s infinite;
+}
+
+.button {
+    font-size: 16px;
+    display: inline-block;
+    background: rgba(0, 0, 0, .5);
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent) 50%, rgba(0, 0, 0, .5) 50%);
+    background-size: 360px 180px;
+    background-position: -180px 0;
+    text-decoration: none;
+    box-shadow: -4px 4px 10px rgba(0, 0, 0, .5);
+    width: 180px;
+    height: 65px;
+    line-height: 65px;
+    text-align: center;
+    color: inherit;
+    transition: background-position .3s ease-in-out;
+    border: 0;
+    font-family: inherit;
+}
+
+.button:hover {
+    color: #fff;
+    background-position: 0 0;
+}
+
+@keyframes pulse {
+    0% { text-shadow: none;}
+    50% { text-shadow: 0 0 10px var(--accent);}
+    100% { text-shadow: none;}
 }

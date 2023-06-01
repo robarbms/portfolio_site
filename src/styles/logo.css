@@ -1,0 +1,15 @@
+.logo {
+    font-size: 24px;
+    font-family: 'poppins-bold';
+    display: inline-block;
+}
+
+.logo span {
+    color: #fff;
+}
+
+.logo-r {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    display: inline-block;
+}

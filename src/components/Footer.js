@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styles from '../styles/footer.css';
+import Logo from './Logo';
 
 class Footer extends React.Component {
     constructor(props) {
@@ -11,6 +12,7 @@ class Footer extends React.Component {
         return(
             <footer>
                 <div className="center">
+                    <Logo />
                     &#169; 2023 Rob Barber
                 </div>
             </footer>

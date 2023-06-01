@@ -27,7 +27,7 @@ class Contact extends React.Component {
                                 <label>Message</label>
                                 <textarea className="message" placeholder="Enter your message"></textarea>
                             </div>
-                            <button type="submit">Send</button>
+                            <button type="submit" class="button">Send &rarr;</button>
                         </form>
                         <div className="contact_info">
                             <h3>Other ways to connect with me.</h3>

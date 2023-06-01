@@ -39,24 +39,7 @@
 }
 
 .contact_form button {
-    padding: calc(var(--spacing) / 2) var(--spacing);
-    width: 100px;
-    box-sizing: border-box;
-    background: rgba(0, 0, 0, .5);
-    font-family: inherit;
-    color: inherit;
-    border: 0;
-    margin-left: 690px;
-    position: relative;
-}
-
-.contact_form button:hover {
-    color: var(--accent);
-    cursor: pointer;
-}
-
-.contact_form button:hover:before {
-    width: 100%;
+    float: right;
 }
 
 .contact_info {
@@ -66,13 +49,4 @@
     margin: 0 0 0 calc(var(--spacing) * 3);
     line-height: 3em;
     background: rgba(0, 0, 0, .5);
-}
-
-.contact_info a {
-    color: inherit;
-}
-
-.contact_info a:hover {
-    color: var(--accent);
-    animation: pulse 1s infinite;
 }

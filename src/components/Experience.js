@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styles from '../styles/experience.css';
+import resume from '../static/Rob Barber Resume.pdf';
 
 const work_data = [
     {
@@ -106,29 +107,32 @@ class WorkExperience extends React.Component {
                         {work_data.map((job, index) => <Job key={index} job={job} />)}
                         <div class="date-end start">Sep 2002</div>
                     </div>
-                    <h2>Certificates</h2>
+                    <h2 className="cert_header">Certificates</h2>
                     <ul className="certification_list">
                         <li>
-                            <a className="certification" href="https://www.credly.com/badges/6854c175-0057-459b-b55a-e8b5e0427a00/linked_in_profile">AWS Certified Cloud Practioneer</a> <span className="cert_date">April 19, 2023</span>
+                            <a className="certification" href="https://www.credly.com/badges/6854c175-0057-459b-b55a-e8b5e0427a00/linked_in_profile" target="_blank">AWS Certified Cloud Practioneer</a> <span className="cert_date">April 19, 2023</span>
                         </li>
                         <li>
-                            <a className="certification" href="https://www.credly.com/badges/cbe085fa-4676-480b-a38b-9e6892723edd/linked_in_profile">[PCEP-30-02] PCEP - Certified Entry-Level Python Programmer</a> <span className="cert_date">April 26, 2023</span>
+                            <a className="certification" href="https://www.credly.com/badges/cbe085fa-4676-480b-a38b-9e6892723edd/linked_in_profile" target="_blank">[PCEP-30-02] PCEP - Certified Entry-Level Python Programmer</a> <span className="cert_date">April 26, 2023</span>
                         </li>
                     </ul>
+                    <h2>Download</h2>
+                    <a className="resume_link" href={resume} target="_blank">Resume</a>
                 </div>
             </section>
         )
     }
 
     componentDidMount() {
-        const animate = 
-        window.onscroll = () => {
+        const animateExp = () => {
             const container = this.exp_container.current;
             const scrollTop = container.getBoundingClientRect().top;
-            if (scrollTop < window.innerHeight / 2) {
+            if(scrollTop < window.innerHeight / 2) {
                 this.exp_container.current.classList.add('animate');
             }
         }
+        animateExp();
+        window.onscroll = animateExp;
     }
 }
 

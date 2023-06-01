@@ -2,6 +2,8 @@
     position: relative;
     height: 1050px;
     margin: 0 0 calc(var(--spacing) * 2) 0;
+    --job-time: .8s;
+    --dot-time: .2s;
 }
 
 .timeline {
@@ -12,7 +14,7 @@
 }
 
 .animate .timeline {
-    animation: timeline 8s ease-out forwards;
+    animation: timeline calc(var(--job-time) * 5 + var(--dot-time) * 6) ease-out forwards;
 }
 
 .job {
@@ -28,23 +30,23 @@
 }
 
 .animate .job-content {
-    animation: job-card 1s ease-out forwards;
+    animation: job-card var(--job-time) var(--dot-time) ease-out forwards;
 }
 
 .animate .job:nth-child(3) .job-content {
-    animation-delay: 1.5s;
+    animation-delay: calc(var(--job-time) + var(--dot-time) * 2);
 }
 
 .animate .job:nth-child(4) .job-content {
-    animation-delay: 3s;
+    animation-delay: calc(var(--job-time) * 2 + var(--dot-time) * 3);
 }
 
 .animate .job:nth-child(5) .job-content {
-    animation-delay: 4.5s;
+    animation-delay: calc(var(--job-time) * 3 + var(--dot-time) * 4);
 }
 
 .animate .job:nth-child(6) .job-content {
-    animation-delay: 6s;
+    animation-delay: calc(var(--job-time) * 4 + var(--dot-time) * 5);
 }
 
 .jobs {
@@ -64,27 +66,27 @@
 }
 
 .animate .date-end {
-    animation: fade .5s linear forwards;
+    animation: fade var(--dot-time) linear forwards;
 }
 
 .animate .job:nth-child(3) .date-end {
-    animation-delay: 1s;
+    animation-delay: calc(var(--job-time) + var(--dot-time));
 }
 
 .animate .job:nth-child(4) .date-end {
-    animation-delay: 2.5s;
+    animation-delay: calc((var(--job-time) + var(--dot-time)) * 2);
 }
 
 .animate .job:nth-child(5) .date-end {
-    animation-delay: 4s;
+    animation-delay: calc((var(--job-time) + var(--dot-time)) * 3);
 }
 
 .animate .job:nth-child(6) .date-end {
-    animation-delay: 5.5s;
+    animation-delay: calc((var(--job-time) + var(--dot-time)) * 4);
 }
 
 .animate .date-end.start {
-    animation-delay: 8s;
+    animation-delay: calc((var(--job-time) + var(--dot-time)) * 5);
     margin: -20px 0 0 40px;
 }
 
@@ -102,27 +104,27 @@
 }
 
 .animate .date-end:after {
-    animation: grow 1s ease-out forwards;
+    animation: grow var(--dot-time) ease-out forwards;
 }
 
 .animate .job:nth-child(3) .date-end:after {
-    animation-delay: .5s;
+    animation-delay: calc(var(--job-time) + var(--dot-time));
 }
 
 .animate .job:nth-child(4) .date-end:after {
-    animation-delay: 2s;
+    animation-delay: calc((var(--job-time) + var(--dot-time)) * 2);
 }
 
 .animate .job:nth-child(5) .date-end:after {
-    animation-delay: 3.5s;
+    animation-delay: calc((var(--job-time) + var(--dot-time)) * 3);
 }
 
 .animate .job:nth-child(6) .date-end:after {
-    animation-delay: 5s;
+    animation-delay: calc((var(--job-time) + var(--dot-time)) * 4);
 }
 
 .animate .date-end.start:after {
-    animation-delay: 5s;
+    animation-delay: calc((var(--job-time) + var(--dot-time)) * 5);
 }
 
 .certification_list {
@@ -131,6 +133,10 @@
 
 .certification {
     color: #fff;
+}
+
+.resume_link {
+    font-size: 18px;
 }
 
 @keyframes timeline {
