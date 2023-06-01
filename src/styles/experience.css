@@ -1,6 +1,7 @@
 .work_area {
     position: relative;
-    height: 1100px;
+    height: 1050px;
+    margin: 0 0 calc(var(--spacing) * 2) 0;
 }
 
 .timeline {
@@ -82,6 +83,11 @@
     animation-delay: 5.5s;
 }
 
+.animate .date-end.start {
+    animation-delay: 8s;
+    margin: -20px 0 0 40px;
+}
+
 .date-end:after {
     content: '';
     position: absolute;
@@ -112,6 +118,10 @@
 }
 
 .animate .job:nth-child(6) .date-end:after {
+    animation-delay: 5s;
+}
+
+.animate .date-end.start:after {
     animation-delay: 5s;
 }
 

@@ -11,7 +11,7 @@ class Footer extends React.Component {
         return(
             <footer>
                 <div className="center">
-                    
+                    &#169; 2023 Rob Barber
                 </div>
             </footer>
         )

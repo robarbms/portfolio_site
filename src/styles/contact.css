@@ -61,16 +61,18 @@
 
 .contact_info {
     display: inline-block;
-    font-size: 18px;
+    font-size: 16px;
     padding: calc(var(--spacing) * 3);
     margin: 0 0 0 calc(var(--spacing) * 3);
-    line-height: 2em;
-    border-left: 1px solid #ccc;
-}
-
-.contact_info label {
+    line-height: 3em;
+    background: rgba(0, 0, 0, .5);
 }
 
 .contact_info a {
     color: inherit;
+}
+
+.contact_info a:hover {
+    color: var(--accent);
+    animation: pulse 1s infinite;
 }

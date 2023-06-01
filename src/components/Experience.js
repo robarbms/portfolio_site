@@ -104,6 +104,7 @@ class WorkExperience extends React.Component {
                         <div className="timeline">
                         </div>
                         {work_data.map((job, index) => <Job key={index} job={job} />)}
+                        <div class="date-end start">Sep 2002</div>
                     </div>
                     <h2>Certificates</h2>
                     <ul className="certification_list">

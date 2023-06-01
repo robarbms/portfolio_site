@@ -1,4 +1,8 @@
 footer {
     background: #111;
-    min-height: 600px;
+    padding: var(--spacing);
+    min-height: var(--spacing);
+    text-align: right;
+    color: #666;
+    font-family: Arial, sans-serif;
 }

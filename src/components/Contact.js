@@ -30,7 +30,7 @@ class Contact extends React.Component {
                             <button type="submit">Send</button>
                         </form>
                         <div className="contact_info">
-                            <h3>Other ways to get a hold of me.</h3>
+                            <h3>Other ways to connect with me.</h3>
                             <div className="contact_info_item">
                                 <label>Email:</label> <a href="mailto:rob@robjamesbarber.com">rob@robjamesbarber.com</a>
                             </div>
@@ -38,10 +38,10 @@ class Contact extends React.Component {
                                 <label>LinkedIn:</label> <a href="https://www.linkedin.com/in/rob-barber-4a05b83/" target="_blank">Profile</a>
                             </div>
                             <div className="contact_info_item">
-                                <label>Github:</label> <a href="https://github.com/robarbms">robarbms</a>
+                                <label>Github:</label> <a href="https://github.com/robarbms" target="_blank">robarbms</a>
                             </div>
                             <div className="contact_info_item">
-                                <label>Codepen:</label> <a href="https://codepen.io/kungfukarl">kungfukarl</a>
+                                <label>Codepen:</label> <a href="https://codepen.io/kungfukarl" target="_blank">kungfukarl</a>
                             </div>
                         </div>
                     </div>

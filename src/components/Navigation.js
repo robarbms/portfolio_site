@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import resume from '../static/Rob Barber Resume.pdf';
 
 class NavItem extends React.Component {
     constructor(props) {
@@ -27,6 +28,9 @@ class Navigation extends React.Component {
                 {
                     this.props.navItems.map((navItem, index) => <NavItem key={index} link={navItem.link} text={navItem.text} />)
                 }
+                <li className="nav-item">
+                    <a className="nav-link" href={resume} target="_blank">Resume</a>
+                </li>
                 </ul>
             </nav>
         );

@@ -24,10 +24,6 @@ const App = ({ /* Add any props needed from Redux state */ }) => {
         {
             link: "#contact",
             text: "Contact"
-        },
-        {
-            link: "#resume",
-            text: "Resume"
         }
     ];
   return (<div class="page">
