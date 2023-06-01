@@ -1,11 +1,11 @@
 header {
-    background: rgba(0, 0, 0, .7);
+    background: var(--overlay);
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     padding: var(--spacing);
-    box-shadow: 0 5px 10px rgba(0, 0, 0,.4);
+    box-shadow: 0 5px 10px var(--darkened);
     z-index: 10;
     height: 40px;
     line-height: 40px;

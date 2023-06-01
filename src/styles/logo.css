@@ -5,7 +5,7 @@
 }
 
 .logo span {
-    color: #fff;
+    color: var(--strong);
 }
 
 .logo-r {

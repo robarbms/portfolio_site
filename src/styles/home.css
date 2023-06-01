@@ -2,7 +2,6 @@
     min-height: 100vh;
     min-width: 100%;
     position: relative;
-    background: linear-gradient(135deg, #1d1e21 0, #3e4246 100%);
     text-align: center;
     font-size: 48px;
     padding: 30vh 0 0;
@@ -37,15 +36,15 @@
 }
 
 .home .name {
-    color: #fff;
+    color: var(--strong);
     display: inline;
 }
 
 .call-to-action {
     margin: var(--spacing) 0 0;
     position: relative;
-/*    opacity: 0;
-    animation: fadein 2s 4s forwards; */
+    opacity: 0;
+    animation: fadein 2s 4s forwards;
 }
 
 .call-to-action:hover {
@@ -118,7 +117,8 @@
     top: 0;
     height: 100%;
     width: 50%;
-    background: rgba(255, 255, 255, .5);
+    background: var(--strong);
+    opacity: .6;
 }
 
 .chevron:before {

@@ -22,17 +22,25 @@ html {
 body {
     font-size: small;
     font-family: 'poppins';
-    background: #222;
-    color: #a9a9a9;
     margin: 0;
     padding: 0;
+    --font-color: #a9a9a9;
     --accent: #F79800;
+    --over-accent: #fff;
     --spacing: 20px;
     --content-width: 1600px;
+    --strong: #fff;
+    --background1: #1d1e21;
+    --background2: #3e4246;
+    --background3: #111114;
+    --darkened: rgba(0, 0, 0, .4);
+    --overlay: rgba(0, 0, 0, .6);
+    background: var(--background1);
+    color: var(--font-color);
 }
 
 section {
-    background: linear-gradient(135deg, #1d1e21 0, #3e4246 100%);
+    background: linear-gradient(135deg, var(--background1) 0, var(--background2) 100%);
     width: 100%;
     margin: 0;
     padding: var(--spacing) var(--spacing) calc(var(--spacing) * 2);
@@ -56,7 +64,7 @@ h1 {
 }
 
 h2 {
-    color: #fff;
+    color: var(--strong);
     font-size: 24px;
     font-weight: 200;
     margin: var(--spacing) 0 var(--spacing);
@@ -65,7 +73,7 @@ h2 {
 h3 {
     margin: 0;
     font-weight: 200;
-    color: #fff;
+    color: var(--strong);
 }
 
 a {
@@ -80,12 +88,12 @@ a:not(.call-to-action):hover {
 .button {
     font-size: 16px;
     display: inline-block;
-    background: rgba(0, 0, 0, .5);
-    background: linear-gradient(90deg, var(--accent) 0%, var(--accent) 50%, rgba(0, 0, 0, .5) 50%);
+    background: var(--overlay);
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent) 50%, var(--overlay) 50%);
     background-size: 360px 180px;
     background-position: -180px 0;
     text-decoration: none;
-    box-shadow: -4px 4px 10px rgba(0, 0, 0, .5);
+    box-shadow: -4px 4px 10px var(--darkened);
     width: 180px;
     height: 65px;
     line-height: 65px;
@@ -97,7 +105,7 @@ a:not(.call-to-action):hover {
 }
 
 .button:hover {
-    color: #fff;
+    color: var(--over-accent);
     background-position: 0 0;
 }
 

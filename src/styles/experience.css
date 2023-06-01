@@ -7,7 +7,7 @@
 }
 
 .timeline {
-    border-left: #a9a9a9 1px solid;
+    border-left: var(--font-color) 1px solid;
     height: 0;
     position: absolute;
     margin: 0 0 0 120px;
@@ -61,7 +61,7 @@
     position: absolute;
     margin: -7px 0 0 -80px;
     width: 85px;
-    color: #fff;
+    color: var(--strong);
     opacity: 0;
 }
 
@@ -98,7 +98,7 @@
     width: 9px;
     height: 9px;
     border-radius: 50%;
-    background: #a9a9a9;
+    background: var(--font-color);
     margin: 5px 0 0 5px;
     transform: scale(0);
 }
@@ -132,7 +132,7 @@
 }
 
 .certification {
-    color: #fff;
+    color: var(--strong);
 }
 
 .resume_link {

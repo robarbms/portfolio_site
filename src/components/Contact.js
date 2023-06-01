@@ -1,31 +1,44 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { connect } from 'react-redux';
 import styles from '../styles/contact.css';
+import emailjs from "@emailjs/browser";
 
 class Contact extends React.Component {
     constructor(props) {
         super(props);
+        this.form = React.createRef();
     }
-
     render() {
+        
+        const sendEmail = (e) => {
+          e.preventDefault();
+      
+          emailjs.sendForm('service_8ej6il4', 'template_0q3sujl', this.form.current, 'gDDSsv52CVL0p2sKS')
+            .then((result) => {
+                console.log(result.text);
+            }, (error) => {
+                console.log(error.text);
+            });
+        };
+        
         return(
             <section className="contact">
                 <div className="center">
                     <a name="contact" className="jump-to"></a>
                     <h2>Contact</h2>
                     <div className="contact-layout">
-                        <form className="contact_form">
+                        <form className="contact_form" ref={this.form} onSubmit={sendEmail}>
                             <div className="name_form">
                                 <label>Name</label>
-                                <input className="name_field" type="text" placeholder="Your name" />
+                                <input name="user_name" className="name_field" type="text" placeholder="Your name" />
                             </div>
                             <div className="email_form">
                                 <label>Email</label>
-                                <input className="email_field" type="text" placeholder="Your email address" />
+                                <input name="user_name" className="email_field" type="text" placeholder="Your email address" />
                             </div>
                             <div className="message_form">
                                 <label>Message</label>
-                                <textarea className="message" placeholder="Enter your message"></textarea>
+                                <textarea name="message" className="message" placeholder="Enter your message"></textarea>
                             </div>
                             <button type="submit" class="button">Send &rarr;</button>
                         </form>
