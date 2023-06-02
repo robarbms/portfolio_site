@@ -33,6 +33,7 @@
     display: inline-block;
     overflow: hidden;
     white-space: nowrap;
+    text-align: left;
 }
 
 .home .name {
@@ -147,5 +148,23 @@
     100% {
         opacity: 0;
         transform: translateY(calc(var(--base) * 8)) scale(0.5);
+    }
+}
+
+@media (max-width: 800px) {
+    .home {
+        font-size: 18px;
+        overflow: hidden;
+    }
+    .load-in {
+        animation: fadein .5s 1s forwards;
+        width: auto;
+    }
+    .dev {
+        animation: fadein 1s 1.5s forwards;
+        width: auto;
+    }
+    .call-to-action {
+        animation: fadein 1.5s 2s forwards;
     }
 }

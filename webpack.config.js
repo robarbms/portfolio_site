@@ -36,6 +36,7 @@ module.exports = {
         collapseWhitespace: true,
         removeComments: true,
       },
+      favicon: './public/favicon.ico'
     }),
     new MiniCssExtractPlugin({
       filename: 'styles.css',

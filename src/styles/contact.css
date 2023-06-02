@@ -3,8 +3,9 @@
     flex-direction: row;
 }
 .contact form {
-    width: 790px;
+    max-width: 790px;
     display: inline-block;
+    margin: 0 0 var(--spacing);
 }
 .name_form,
 .email_form {
@@ -34,7 +35,7 @@
 }
 
 .contact form textarea {
-    width: 790px;
+    width: 100%;
     height: 20em;
 }
 
@@ -54,4 +55,15 @@
 .contact_info label {
     min-width: 6em;
     display: inline-block;
+}
+
+@media (max-width: 800px) {
+    .contact-layout {
+        flex-direction: column;
+    }
+
+    .email_form,
+    .name_form {
+        width: 100%;
+    }
 }

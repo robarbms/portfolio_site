@@ -114,3 +114,9 @@ a:not(.call-to-action):hover {
     50% { text-shadow: 0 0 10px var(--accent);}
     100% { text-shadow: none;}
 }
+
+@media (max-width: 800px) {
+    body {
+        --spacing: 10px;
+    }
+}

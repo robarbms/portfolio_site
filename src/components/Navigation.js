@@ -1,8 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import resume from '../static/Rob Barber Resume.pdf';
 
-class NavItem extends React.Component {
+export class NavItem extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -16,7 +15,7 @@ class NavItem extends React.Component {
     }
 }
 
-class Navigation extends React.Component {
+export default class Navigation extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -36,12 +35,3 @@ class Navigation extends React.Component {
         );
     }
 }
-
-// Map state from the Redux store to component props
-const mapStateToProps = (state) => {
-  return {
-    // Map the required state properties here
-  };
-};
-
-export default connect(mapStateToProps)(Navigation);

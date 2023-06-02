@@ -1,10 +1,9 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import Logo from './Logo';
 import Navigation from './Navigation';
 import styles from '../styles/Header.css';
 
-class Header extends React.Component {
+export default class Header extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -20,12 +19,3 @@ class Header extends React.Component {
         );
     }
 }
-
-// Map state from the Redux store to component props
-const mapStateToProps = (state) => {
-  return {
-    // Map the required state properties here
-  };
-};
-
-export default connect(mapStateToProps)(Header);

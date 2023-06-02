@@ -1,6 +1,7 @@
 .work_area {
     position: relative;
-    height: 1050px;
+    min-height: 1111px;
+    max-width: 1000px;
     margin: 0 0 calc(var(--spacing) * 2) 0;
     --job-time: .8s;
     --dot-time: .2s;
@@ -22,7 +23,7 @@
 }
 
 .job-content {
-    border-top: 1px solid;
+    border-top: 1px solid var(--font-color);
     padding: 0;
     width: 0;
     max-height: 1px;
@@ -176,15 +177,38 @@
         max-height: 1px;
         width: 0;
         padding: 0;
+        color: transparent;
     }
     40% {
         max-height: 1px;
-        width: 1000px;
+        width: 100%;
         padding: var(--spacing) var(--spacing) 0;
+        color: transparent;
     }
     100% {
         max-height: 400px;
-        width: 1000px;
+        width: 100%;
         padding: var(--spacing);
+        color: inherit;
+    }
+}
+
+
+@media (max-width: 800px) {
+    .work_area {
+        margin-bottom: calc(var(--spacing) * 4);
+    }
+    .timeline,
+    .job {
+        margin: 0 0 0 40px;
+    }
+    .date-end {
+        margin-left: -35px;
+        width: 40px;
+    }
+
+    .date-end.start,
+    .animate .date-end.start {
+        margin: -5px 0 0 5px;
     }
 }

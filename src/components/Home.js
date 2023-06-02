@@ -1,8 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import styles from '../styles/home.css';
 
-class Home extends React.Component {
+export default class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -44,13 +43,3 @@ class Home extends React.Component {
         }
     }
 }
-
-// Map state from the Redux store to component props
-const mapStateToProps = (state) => {
-    return {
-      // Map the required state properties here
-    };
-  };
-  
-  export default connect(mapStateToProps)(Home);
-  

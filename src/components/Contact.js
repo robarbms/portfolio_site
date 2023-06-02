@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import styles from '../styles/contact.css';
 import emailjs from "@emailjs/browser";
 
-class Contact extends React.Component {
+export default class Contact extends React.Component {
     constructor(props) {
         super(props);
         this.form = React.createRef();
@@ -63,13 +63,3 @@ class Contact extends React.Component {
         )
     }
 }
-
-// Map state from the Redux store to component props
-const mapStateToProps = (state) => {
-    return {
-      // Map the required state properties here
-    };
-  };
-  
-  export default connect(mapStateToProps)(Contact);
-  

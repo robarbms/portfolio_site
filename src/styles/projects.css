@@ -1,0 +1,107 @@
+.project {
+    box-shadow: -4px -4px 10px var(--darkened);
+    display: inline-block;
+    margin: var(--spacing) var(--spacing) 0 0;
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+    background-color: var(--background3);
+    position: relative;
+}
+
+.img_wrap {
+    width: 100%;
+    height: 340px;
+    background-size:contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    opacity: 1;
+    transition: all .3s linear;
+}
+
+.project:hover .img_wrap {
+    opacity: .3;
+}
+
+.proj_content {
+    padding: var(--spacing);
+    height: 60px;
+    width: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .8);
+    transition: all .4s .4s ease-out;
+}
+
+.project:hover .proj_content {
+    height: 300px;
+    transition: all .4s ease-out;
+}
+
+.proj_content p,
+.tech {
+    opacity: 0;
+    transition: all .3s ease-out;
+}
+
+.project:hover .proj_content p,
+.project:hover .tech {
+    opacity: 1;
+}
+
+.project i {
+    font-size: 32px;
+    margin: 0 var(--spacing) 0 0;
+}
+
+.proj_links {
+    height: 100px;
+    padding: var(--spacing);
+    box-sizing: border-box;
+    background: var(--accent);
+    position: absolute;
+    bottom: -100px;
+    width: 100%;
+    transition: all .4s ease-out;
+    text-align: center;
+}
+
+.project:hover .proj_links {
+    bottom: 0;
+    transition: all .4s .4s ease-out;
+}
+
+.proj_link {
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    color: inherit;
+    text-decoration: none;
+    color: #000;
+    margin: 0 0 10px 0;
+    border: 1px solid #000;
+    background: #fff;
+    box-shadow: -4px 4px 10px var(--darkened);
+    vertical-align: center;
+}
+
+.proj_link + .proj_link {
+    margin-left: var(--spacing);
+}
+
+.proj_link_type {
+    display: inline-block;
+    width: 100%;
+    background: #000;
+    color: #fff;
+}
+
+
+@media (max-width: 800px) {
+    .project {
+        width: auto;
+        display: block;
+    }
+}

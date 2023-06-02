@@ -1,9 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import styles from '../styles/footer.css';
 import Logo from './Logo';
 
-class Footer extends React.Component {
+export default class Footer extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -19,13 +18,3 @@ class Footer extends React.Component {
         )
     }
 }
-
-// Map state from the Redux store to component props
-const mapStateToProps = (state) => {
-    return {
-      // Map the required state properties here
-    };
-  };
-  
-  export default connect(mapStateToProps)(Footer);
-  
