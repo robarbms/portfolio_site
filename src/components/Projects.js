@@ -41,6 +41,20 @@ export class Project extends React.Component {
     }
 }
 
+export class CodeSource extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+    render() {
+        const {title, link, icon} = this.props;
+        return(
+            <a className="code_source" href={link} target="_blank" title={title}>
+                <i className={icon || `devicon-${title.toLowerCase()}-plain`}></i> <span>{title}</span>
+            </a>
+        )
+    }
+}
+
 export default class Projects extends React.Component {
     constructor(props) {
         super(props);
@@ -273,6 +287,22 @@ export default class Projects extends React.Component {
                 ]
             }
         ]
+
+        this.code = [
+            {
+                title: "GitHub",
+                link: "https://github.com/robarbms"
+            },
+            {
+                title: "CodePen",
+                link: "https://codepen.io/kungfukarl"
+            },
+            {
+                title: "NPM",
+                icon: "devicon-npm-original-wordmark",
+                link: "https://www.npmjs.com/~robarbms"
+            }
+        ]
     }
 
     render() {
@@ -281,12 +311,18 @@ export default class Projects extends React.Component {
                 <div className="center">
                     <a name="projects" className="jump-to"></a>
                     <h2>Projects</h2>
+                    <p className="description">My most recent professional work was done for Microsoft for the Edge Browser and Windows 11, so the source code is not available for viewing. I included links to my prototypes to support the features that I built. I did include links to source code I wrote for the Microsoft open source libraries.</p>
+                    <p className="description">If you have any questions about my work, please feel free to <a href="#contact">contact me</a>.</p>
                     <div className="projects-container">
                         {this.projects.map((project, index) => {
                             return (
                                 <Project key={index} title={project.title} tech={project.tech} images={project.images} description_short={project.description_short} links={project.links} description={this.projects.description} />
                             )
                         })}
+                    </div>
+                    <h2>More work that I've done</h2>
+                    <div className="more_work">
+                        {this.code.map(({title, link, icon}, index) => <CodeSource key={index} title={title} link={link} icon={icon} />)}
                     </div>
                 </div>
             </section>

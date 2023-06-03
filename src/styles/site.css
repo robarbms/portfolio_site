@@ -109,6 +109,10 @@ a:not(.call-to-action):hover {
     background-position: 0 0;
 }
 
+.description {
+    max-width: 600px;
+}
+
 @keyframes pulse {
     0% { text-shadow: none;}
     50% { text-shadow: 0 0 10px var(--accent);}

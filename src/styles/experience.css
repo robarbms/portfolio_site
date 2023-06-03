@@ -1,8 +1,8 @@
 .work_area {
     position: relative;
-    min-height: 1111px;
+    min-height: 1342px;
     max-width: 1000px;
-    margin: 0 0 calc(var(--spacing) * 2) 0;
+    margin: calc(var(--spacing) * 2) 0;
     --job-time: .8s;
     --dot-time: .2s;
 }
@@ -15,7 +15,7 @@
 }
 
 .animate .timeline {
-    animation: timeline calc(var(--job-time) * 5 + var(--dot-time) * 6) ease-out forwards;
+    animation: timeline calc(var(--job-time) * 5 + var(--dot-time) * 5) ease-out forwards;
 }
 
 .job {
@@ -28,6 +28,16 @@
     width: 0;
     max-height: 1px;
     overflow: hidden;
+    box-sizing: border-box;
+}
+
+.job-tech li {
+    display: inline-block;
+    font-size: 24px;
+}
+
+.job-tech li + li {
+    margin: 0 0 0 var(--spacing);
 }
 
 .animate .job-content {

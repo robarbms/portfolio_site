@@ -98,6 +98,30 @@
     color: #fff;
 }
 
+.proj_link_text {
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.code_source {
+    font-size: 24px;
+    margin: 0 calc(var(--spacing) * 2) 0 0;
+    text-decoration: none;
+    vertical-align: middle;
+    color: #fff;
+}
+
+.code_source i {
+    font-size: 48px;
+    vertical-align: middle;
+}
+
+.code_source span {
+    font-family: 'poppins-thin';
+    vertical-align: middle;
+}
 
 @media (max-width: 800px) {
     .project {

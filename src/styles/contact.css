@@ -52,9 +52,18 @@
     background: var(--overlay);
 }
 
-.contact_info label {
-    min-width: 6em;
-    display: inline-block;
+.contact-item {
+}
+
+.contact-item a {
+    text-decoration: none;
+}
+
+.contact-item svg,
+.contact-item i {
+    font-size: 32px;
+    vertical-align: middle;
+    margin: 0 var(--spacing) 0 0;
 }
 
 @media (max-width: 800px) {
