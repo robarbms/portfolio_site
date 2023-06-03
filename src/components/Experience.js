@@ -120,7 +120,11 @@ export const work_data = [
             {
                 title: 'C++',
                 icon: 'devicon-cplusplus-plain'
-            }
+            },
+            {
+                title: 'C#',
+                icon: 'devicon-csharp-plain'
+            },
         ]
     },
     {

@@ -6,6 +6,7 @@
     max-width: 790px;
     display: inline-block;
     margin: 0 0 var(--spacing);
+    position: relative;
 }
 .name_form,
 .email_form {
@@ -64,6 +65,17 @@
     font-size: 32px;
     vertical-align: middle;
     margin: 0 var(--spacing) 0 0;
+}
+
+.contact_confirm {
+    position: absolute;
+    background: var(--background3);
+    box-shadow: -4px 4px 10px var(--darkened);
+    top: 60px;
+    bottom: 60px;
+    left: 60px;
+    right: 60px;
+    padding: calc(var(--spacing) * 2);
 }
 
 @media (max-width: 800px) {

@@ -28,6 +28,10 @@ export default class Contact extends React.Component {
         super(props);
         this.form = React.createRef();
         this.sendEmail = this.sendEmail.bind(this);
+        this.state = {
+            mailSent: false
+        }
+
 
         this.more_contact = [
             {
@@ -53,8 +57,9 @@ export default class Contact extends React.Component {
             }
         ]
     }
+
     sendEmail(evnt) {
-        e.preventDefault();
+        evnt.preventDefault();
       
         emailjs.sendForm('service_8ej6il4', 'template_0q3sujl', this.form.current, 'gDDSsv52CVL0p2sKS')
           .then((result) => {
@@ -62,6 +67,11 @@ export default class Contact extends React.Component {
           }, (error) => {
               console.log(error.text);
           });
+
+        this.form.current.reset();
+        this.setState({
+            mailSent: true
+        });
     }
 
     render() {
@@ -71,7 +81,7 @@ export default class Contact extends React.Component {
                     <a name="contact" className="jump-to"></a>
                     <h2>Contact</h2>
                     <div className="contact-layout">
-                        <form className="contact_form" ref={this.form} onSubmit={this.sendEmail}>
+                        <form className="contact_form" ref={this.form}>
                             <div className="name_form">
                                 <label>Name</label>
                                 <input name="user_name" className="name_field" type="text" placeholder="Your name" />
@@ -85,6 +95,12 @@ export default class Contact extends React.Component {
                                 <textarea name="message" className="message" placeholder="Enter your message"></textarea>
                             </div>
                             <button type="submit" class="button">Send &rarr;</button>
+                            {this.state.mailSent == true &&
+                            <div className="contact_confirm">
+                                <h2>Email sent!</h2>
+                                <p>I will get back to you soon.</p>
+                            </div>
+                        }
                         </form>
                         <div className="contact_info">
                             <h3>Other ways to connect with me.</h3>
@@ -95,6 +111,10 @@ export default class Contact extends React.Component {
                     </div>
                 </div>
             </section>
-        )
+        );
+    }
+
+    componentDidMount() {
+        this.form.current.addEventListener("submit", this.sendEmail);
     }
 }
