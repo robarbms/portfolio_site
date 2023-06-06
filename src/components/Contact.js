@@ -15,7 +15,6 @@ export class ContactItem extends React.Component {
             <div className="contact-item">
                 <a href={link}>
                     {iconType == "fontawesome" ? <FontAwesomeIcon icon={icon} /> : <i className={"devicon " + icon}></i>}
-                    <span className="contact-title">{title}: </span>
                     <span className="contact-text">{text}</span>
                 </a>
             </div>
@@ -50,7 +49,7 @@ export default class Contact extends React.Component {
             },
             {
                 title: "LinkedIn",
-                text: "Profile",
+                text: "LinkedIn",
                 link: "https://www.linkedin.com/in/rob-barber-4a05b83/",
                 icon: "devicon-linkedin-plain",
                 iconType: "devicon"
@@ -72,6 +71,11 @@ export default class Contact extends React.Component {
         this.setState({
             mailSent: true
         });
+        setTimeout(() => {
+            this.setState({
+                mailSent: false
+            });
+        }, 3000);
     }
 
     render() {
@@ -88,7 +92,7 @@ export default class Contact extends React.Component {
                             </div>
                             <div className="email_form">
                                 <label>Email</label>
-                                <input name="user_name" className="email_field" type="text" placeholder="Your email address" />
+                                <input name="user_email" className="email_field" type="text" placeholder="Your email address" />
                             </div>
                             <div className="message_form">
                                 <label>Message</label>
@@ -98,7 +102,7 @@ export default class Contact extends React.Component {
                             {this.state.mailSent == true &&
                             <div className="contact_confirm">
                                 <h2>Email sent!</h2>
-                                <p>I will get back to you soon.</p>
+                                <p>Thanks for your message, I will get back to you soon.</p>
                             </div>
                         }
                         </form>
@@ -108,7 +112,7 @@ export default class Contact extends React.Component {
                                 <ContactItem key={index} {...contact} />
                             ))}
                         </div>
-                    </div>
+                    </div>  
                 </div>
             </section>
         );

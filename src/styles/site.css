@@ -80,7 +80,7 @@ a {
     color: inherit;
 }
 
-a:not(.call-to-action):hover {
+a:not(.no-hover):hover {
     color: var(--accent);
     animation: pulse 1s infinite;
 }

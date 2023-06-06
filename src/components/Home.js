@@ -16,15 +16,15 @@ export default class Home extends React.Component {
                 <h1><span>Hello</span><span className="load-in">, I'm <span className="name">Rob Barber</span></span></h1>
                 <span className="dev">a full stack developer</span>
                 <div>
-                    <a href="#contact" className="call-to-action button">
+                    <a href="#contact" className="call-to-action button no-hover">
                         <span>Contact me</span>
                     </a>
                 </div>
-                <div className="scroll">
+                <a href="#projects" title="scroll to see more" className="scroll no-hover">
                     <div className="chevron"></div>
                     <div className="chevron"></div>
                     <div className="chevron"></div>
-                </div>
+                </a>
             </div>
         )
     }
