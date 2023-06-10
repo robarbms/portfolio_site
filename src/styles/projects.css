@@ -123,6 +123,16 @@
     vertical-align: middle;
 }
 
+@media (max-width: 1000px) {
+    .project {
+        width: 45%;
+    }
+
+    .proj_link {
+        width: 25%;
+    }
+}
+
 @media (max-width: 800px) {
     .project {
         width: auto;
