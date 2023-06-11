@@ -47,17 +47,15 @@
 .contact_info {
     display: inline-block;
     font-size: 16px;
-    padding: calc(var(--spacing) * 3);
-    margin: 0 0 0 calc(var(--spacing) * 3);
+    padding: calc(var(--spacing) * 2);
+    margin: 0 0 0 calc(var(--spacing) * 2);
     line-height: 3em;
     background: var(--overlay);
 }
 
-.contact-item {
-}
-
 .contact-item a {
     text-decoration: none;
+    white-space: nowrap;
 }
 
 .contact-item svg,
@@ -85,6 +83,15 @@
     }
     100% {
         opacity: 0;
+    }
+}
+
+@media (max-width: 1000px) {
+    .contact-item svg {
+        font-size: 20px;
+    }
+    .contact_info {
+        font-size: 14px;
     }
 }
 
