@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../styles/experience.css';
-import resume from '../static/Rob Barber Resume.pdf';
+import resume from '../static/Rob Barber.pdf';
 
 export const work_data = [
     {

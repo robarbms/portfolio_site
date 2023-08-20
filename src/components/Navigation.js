@@ -1,5 +1,5 @@
 import React from 'react';
-import resume from '../static/Rob Barber Resume.pdf';
+import resume from '../static/Rob Barber.pdf';
 
 export class NavItem extends React.Component {
     constructor(props) {
