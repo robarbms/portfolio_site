@@ -1,9 +1,9 @@
-import news_carousel from '../static/news_caro.webp'
-import keyboard from '../static/keyboard_access_preview.webp'
-import calendar from '../static/calendar.webp'
-import data_vis from '../static/data-vis.webp'
-import masonry from '../static/masonry.webp'
-import covid_tracker from '../static/covid_tracker_preview.webp'
+import news_carousel from '../assets/news_caro.webp'
+import keyboard from '../assets/keyboard_access_preview.webp'
+import calendar from '../assets/calendar.webp'
+import data_vis from '../assets/data-vis.webp'
+import masonry from '../assets/masonry.webp'
+import covid_tracker from '../assets/covid_tracker_preview.webp'
 
 const ProjectList = [
     {

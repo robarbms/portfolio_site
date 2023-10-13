@@ -1,5 +1,5 @@
 import React, { setState, useEffect, useRef } from 'react';
-import styles from '../styles/home.css';
+import styles from '../../styles/home.css';
 
 export default function Home () {
     const animate = useRef(false);

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
-import styles from '../styles/experience.css'
-import resume from '../static/Rob Barber.pdf'
-import JobList from './JobList'
+import styles from '../../styles/experience.css'
+import resume from '../../assets/Rob Barber.pdf'
+import JobList from '../../data/JobList'
 import Job from './Job'
 
 /**

@@ -27,6 +27,11 @@ module.exports = {
             test: /\.(jpg|png|svg|gif|ttf|pdf|webp)$/,
             type: 'asset/resource',
         },
+        {
+          test: /\.tsx?$/,
+          exclude: /node_modules/,
+          use: 'ts-loader'
+        }
     ],
   },
   plugins: [
@@ -48,6 +53,9 @@ module.exports = {
       new TerserPlugin(),
       new CssMinimizerPlugin(),
     ],
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js']
   },
   watch: true
 };

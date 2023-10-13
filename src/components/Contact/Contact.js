@@ -1,9 +1,9 @@
 import React, { useRef, useState, useEffect } from 'react'
-import styles from '../styles/contact.css'
+import styles from '../../styles/contact.css'
 import emailjs from "@emailjs/browser"
 import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import ContactItem from "./ContactItem"
-import sendMail from "./sendMail"
+import MailSubmit from "./MailSubmit"
 
 const more_contact = [
     {
@@ -29,33 +29,51 @@ const more_contact = [
     }
 ]
 
+function getValidEmail (email) {
+    let match = email && email.match(/.+@.+\..+/);
+    return match && match.length > 0;
+}
+
+function getValidMessage (message) {
+    if (message === null || message === undefined) return false;
+    let message_clean = message.trim();
+    if (message_clean.length === 0) {
+        return false;
+    }
+    return true;
+}
 
 export default function Contact (props) {
     const [mailSent, setMailSent] = useState(false);
     const form = useRef(null);
+    const isValidEmail = useRef(false);
+    const isValidMessage = useRef(false);
 
     function sendEmail (evnt) {
         evnt.preventDefault();
-      
-        emailjs.sendForm('service_8ej6il4', 'template_0q3sujl', form.current, 'gDDSsv52CVL0p2sKS')
-          .then((result) => {
-              console.log(result.text);
-          }, (error) => {
-              console.log(error.text);
-          });
+        let timeout = 3000;
+        let email = form.current.user_email.value;
+        let message = form.current.message.value;
+        isValidEmail.current = getValidEmail(email);
+        isValidMessage.current = getValidMessage(message);
 
-        form.current.reset();
+        if(isValidEmail.current && isValidMessage.current && !mailSent) {
+            emailjs.sendForm('service_8ej6il4', 'template_0q3sujl', form.current, 'gDDSsv52CVL0p2sKS')
+              .then((result) => {
+                  console.log(result.text);
+              }, (error) => {
+                  console.log(error.text);
+              });
+    
+            form.current.reset();
+            timeout = 10000;
+        }
         setMailSent(true);
 
         setTimeout(() => {
             setMailSent(false);
-        }, 3000);
+        }, timeout);
     }
-
-    useEffect(() => {
-        form.current.addEventListener("submit", sendEmail);
-        return () => (form.current.removeEventListener("submit", sendMail));
-    }, [])
 
     return(
         <section className="contact">
@@ -63,7 +81,7 @@ export default function Contact (props) {
                 <a name="contact" className="jump-to"></a>
                 <h2>Contact</h2>
                 <div className="contact-layout">
-                    <form className="contact_form" ref={form}>
+                    <form className="contact_form" ref={form} onSubmit={sendEmail}>
                         <div className="name_form">
                             <label>Name</label>
                             <input name="user_name" className="name_field" type="text" placeholder="Your name" />
@@ -78,11 +96,8 @@ export default function Contact (props) {
                         </div>
                         <button type="submit" class="button">Send &rarr;</button>
                         {mailSent == true &&
-                        <div className="contact_confirm">
-                            <h2>Email sent!</h2>
-                            <p>Thanks for your message, I will get back to you soon.</p>
-                        </div>
-                    }
+                            <MailSubmit isValidEmail={isValidEmail.current} isValidMessage={isValidMessage.current} />
+                        }
                     </form>
                     <div className="contact_info">
                         <h3>Other ways to connect with me.</h3>

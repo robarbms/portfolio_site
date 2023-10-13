@@ -1,6 +1,6 @@
 import React from 'react'
-import styles from '../styles/footer.css'
-import Logo from './Logo'
+import styles from '../../styles/footer.css'
+import Logo from '../Home/Logo'
 
 /**
  * Renders a basic site footer

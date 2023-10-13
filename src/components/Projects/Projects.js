@@ -1,8 +1,8 @@
 import React from 'react'
-import styles from '../styles/projects.css'
+import styles from '../../styles/projects.css'
 import Project from "./Project"
 import CodeSource from "./CodeSource"
-import ProjectList from "./ProjectList"
+import ProjectList from "../../data/ProjectList"
 
 const code = [
     {

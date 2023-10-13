@@ -7,30 +7,21 @@ header {
     padding: var(--spacing);
     box-shadow: 0 5px 10px var(--darkened);
     z-index: 10;
-    height: 40px;
+    min-height: 40px;
     line-height: 40px;
 }
 
-nav ul {
-    list-style-type: none;
+nav {
     float: right;
     margin: 0;
     padding: 0;
 } 
 
-nav ul li {
-    display: inline-block;
-    margin: 0 0 0 var(--spacing);
-    padding: 0;
-}
-
-nav ul li a {
+nav a {
     text-decoration: none;
     transition: text-shadow .3s;
-}
-
-nav ul li.active {
-    color: var(--accent);
+    display: inline-block;
+    margin: 0 0 0 var(--spacing);
 }
 
 header .logo {

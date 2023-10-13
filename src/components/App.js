@@ -1,10 +1,10 @@
 import React from 'react'
-import Header from './Header'
-import Home from './Home'
-import WorkExperience from './Experience'
-import Projects from './Projects'
-import Contact from './Contact'
-import Footer from './Footer'
+import Header from './Home/Header'
+import Home from './Home/Home'
+import WorkExperience from './Experience/Experience'
+import Projects from './Projects/Projects'
+import Contact from './Contact/Contact'
+import Footer from './Footer/Footer'
 
 /**
  * Renders the basic shell for the site.
