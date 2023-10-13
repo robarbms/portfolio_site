@@ -1,8 +1,8 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 
 module.exports = {
   entry: './src/index.js',
@@ -24,7 +24,7 @@ module.exports = {
             use: [MiniCssExtractPlugin.loader, 'css-loader'],
         },
         {
-            test: /\.(jpg|png|svg|gif|ttf|pdf)$/,
+            test: /\.(jpg|png|svg|gif|ttf|pdf|webp)$/,
             type: 'asset/resource',
         },
     ],
@@ -41,6 +41,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'styles.css',
     }),
+
   ],
   optimization: {
     minimizer: [

@@ -14,7 +14,7 @@
     right: 0;
     bottom: 0;
     top: 0;
-    background: url(../static/background1.jpg) center center;
+    background: url(../static/background1_large.webp) center center;
     background-size: cover;
     opacity: .2;
 }
