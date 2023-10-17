@@ -2,14 +2,25 @@ import React, { useRef, useState, useEffect } from 'react'
 import emailjs from "@emailjs/browser"
 import ContactItem from "./ContactItem"
 import MailSubmit from "./MailSubmit"
-import MoreContactList, { MoreContactAttr } from '../../data/MoreContactList'
+import { MoreContactAttr } from '../../data/MoreContactList'
 import '../../styles/contact.css'
 
+/**
+ * Checks that the provided email address looks like an email address
+ * @param email - string representation of an email address
+ * @returns boolean
+ */
 function getValidEmail (email: string): boolean {
     let match: RegExpMatchArray | null | boolean = !!email && email.match(/.+@.+\..+/);
     return !!(match && match.length > 0);
 }
 
+/**
+ * Basic check that the message isn't empty.
+ * May expand logic here later
+ * @param message - message as string
+ * @returns boolean
+ */
 function getValidMessage (message: string): boolean {
     if (message === null || message === undefined) return false;
     let message_clean = message.trim();
@@ -19,7 +30,12 @@ function getValidMessage (message: string): boolean {
     return true;
 }
 
-export default function Contact () {
+/**
+ * Basic Contact form
+ * @param contact - A list of more ways to contact
+ * @returns Contact component
+ */
+export default function Contact ({contacts}: {contacts: MoreContactAttr[]}) {
     const [mailSent, setMailSent] = useState(false);
     const form = useRef(null);
     const isValidEmail = useRef(false);
@@ -82,7 +98,7 @@ export default function Contact () {
                     </form>
                     <div className="contact_info">
                         <h3>Other ways to connect with me.</h3>
-                        {MoreContactList.map((contact, index) => (
+                        {contacts.map((contact, index) => (
                             <ContactItem key={index} {...contact} />
                         ))}
                     </div>

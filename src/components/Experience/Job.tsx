@@ -6,7 +6,7 @@ import { JobListing } from '../../data/JobList'
  * @param {*} props 
  * @returns Job component
  */
-export default function Job ({title, company, startDate, endDate, work, tech}: JobListing) {
+export default function Job ({title, company, startDate, endDate, work, tech}: JobListing): React.JSX.Element {
     return (
         <div className="job">
             <div className="date-end">{endDate}</div>
@@ -21,5 +21,5 @@ export default function Job ({title, company, startDate, endDate, work, tech}: J
                 </ul>
             </div>
         </div>
-    )
+    );
 }

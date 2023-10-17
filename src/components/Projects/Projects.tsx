@@ -1,11 +1,11 @@
 import React from 'react'
 import Project from "./Project"
 import CodeSource from './CodeSource'
-import ProjectList, { ProjectAttr } from '../../data/ProjectList'
-import CodeSiteList, { CodeSite } from '../../data/CodeSiteList'
+import { ProjectAttr } from '../../data/ProjectList'
+import { CodeSite } from '../../data/CodeSiteList'
 import '../../styles/projects.css'
 
-export default function Projects () {
+export default function Projects ({projects, codesites}: {projects: ProjectAttr[], codesites: CodeSite[]}) {
     return(
         <section className="projects">
             <div className="center">
@@ -14,7 +14,7 @@ export default function Projects () {
                 <p className="description">My most recent professional work was done for Microsoft for the Edge Browser and Windows 11, so the source code is not available for viewing. I included links to my prototypes to support the features that I built. I did include links to source code I wrote for the Microsoft open source libraries.</p>
                 <p className="description">If you have any questions about my work, please feel free to <a href="#contact">contact me</a>.</p>
                 <div className="projects-container">
-                    {ProjectList.map((project, index) => {
+                    {projects.map((project, index) => {
                         return (
                             <Project key={index} title={project.title} tech={project.tech} images={project.images} description_short={project.description_short} links={project.links} description={project.description} />
                         )
@@ -22,7 +22,7 @@ export default function Projects () {
                 </div>
                 <h2>More work that I've done</h2>
                 <div className="more_work">
-                    {CodeSiteList.map(({title, link, icon}: CodeSite, index: number) => <CodeSource key={index} title={title} link={link} icon={icon} />)}
+                    {codesites.map(({title, link, icon}: CodeSite, index: number) => <CodeSource key={index} title={title} link={link} icon={icon} />)}
                 </div>
             </div>
         </section>

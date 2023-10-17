@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import resume from '../../assets/Rob Barber.pdf'
-import JobList from '../../data/JobList'
+import {JobListing} from '../../data/JobList'
 import Job from './Job'
 import '../../styles/experience.css'
 
@@ -9,7 +9,7 @@ import '../../styles/experience.css'
  * @param {*} props 
  * @returns Work Experience component
  */
-export default function WorkExperience () {
+export default function WorkExperience ({jobs}: {jobs: JobListing[]}) {
     const exp_container = useRef(null);
 
     /**
@@ -43,7 +43,7 @@ export default function WorkExperience () {
                 <div className="work_area">
                     <div className="timeline">
                     </div>
-                    {JobList.map((job, index) => <Job key={index} {...job} />)}
+                    {jobs.map((job, index) => <Job key={index} {...job} />)}
                     <div className="date-end start">Sep 2002</div>
                 </div>
                 <h2 className="cert_header">Certificates</h2>

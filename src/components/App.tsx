@@ -5,7 +5,11 @@ import WorkExperience from './Experience/Experience'
 import Projects from './Projects/Projects'
 import Contact from './Contact/Contact'
 import Footer from './Footer/Footer'
-import { NavItemProps } from './Home/NavItem'
+import NavList from '../data/NavList'
+import ProjectList from '../data/ProjectList'
+import CodeSiteList from '../data/CodeSiteList'
+import JobList from '../data/JobList'
+import MoreContactList from '../data/MoreContactList'
 import '../styles/site.css'
 
 
@@ -14,32 +18,13 @@ import '../styles/site.css'
  * @returns App component
  */
 export default function App () {
-    const navItems = [
-        {
-            link: "#",
-            text: "Home"
-        },
-        {
-            link: "#projects",
-            text: "Projects"
-        },
-        {
-            link: "#experience",
-            text: "Experience"
-        },
-        {
-            link: "#contact",
-            text: "Contact"
-        }
-    ];
-
     return (
         <div className="page">
-            <Header navItems={navItems}></Header>
+            <Header navItems={NavList}></Header>
             <Home></Home>
-            <Projects></Projects>
-            <WorkExperience></WorkExperience>
-            <Contact></Contact>
+            <Projects projects={ProjectList} codesites={CodeSiteList}></Projects>
+            <WorkExperience jobs={JobList}></WorkExperience>
+            <Contact contacts={MoreContactList}></Contact>
             <Footer></Footer>
         </div>
     );
