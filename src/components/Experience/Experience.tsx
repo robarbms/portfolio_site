@@ -1,25 +1,27 @@
 import React, { useEffect, useRef } from 'react'
-import styles from '../../styles/experience.css'
 import resume from '../../assets/Rob Barber.pdf'
 import JobList from '../../data/JobList'
 import Job from './Job'
+import '../../styles/experience.css'
 
 /**
  * Rendering of all of my work experience
  * @param {*} props 
  * @returns Work Experience component
  */
-export default function WorkExperience (props) {
+export default function WorkExperience () {
     const exp_container = useRef(null);
 
     /**
      * Triggers animation of the work experience when scrolled into view
      */
     const animateExp = () => {
-        const container = exp_container.current;
-        const scrollTop = container.getBoundingClientRect().top;
-        if(scrollTop < window.innerHeight / 2) {
-            exp_container.current.classList.add('animate');
+        const container: HTMLDivElement | null = exp_container.current;
+        if (container !== null) {
+            const scrollTop = (container as HTMLDivElement).getBoundingClientRect().top;
+            if(scrollTop < window.innerHeight / 2) {
+                (container as HTMLDivElement).classList.add('animate');
+            }
         }
     }
 
@@ -35,14 +37,14 @@ export default function WorkExperience (props) {
     return(
         <section className="experience" ref={exp_container}>
             <div className="center">
-                <a name="experience" className="jump-to"></a>
+                <a id="experience" className="jump-to"></a>
                 <h2>Work Experience</h2>
                 <p className="description">Most of my career has been with Microsoft. I've worked as product designer, frontend devloper, a prototyper and a software developer engineer. I've worked on several projects in a lot of different technologies. Though, my expertise is in frontend development, I've built projects in a lot of other languages such as C++, C#, PHP, Go Lang and Python.</p>
                 <div className="work_area">
                     <div className="timeline">
                     </div>
                     {JobList.map((job, index) => <Job key={index} {...job} />)}
-                    <div class="date-end start">Sep 2002</div>
+                    <div className="date-end start">Sep 2002</div>
                 </div>
                 <h2 className="cert_header">Certificates</h2>
                 <p className="description">Currently, I've been working on studying machine learning. I'm working my way through certifications for AWS, Python and TensorFlow. I have some experience building models for regression problems, image classification, natural language processing, and time series forecasting.</p>

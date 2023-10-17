@@ -1,13 +1,13 @@
 import React from 'react'
 import resume from '../../assets/Rob Barber.pdf'
-import NavItem from './NavItem'
+import NavItem, { NavItemProps } from './NavItem'
 
 /**
  * Rendering for a list of navigation items
  * @param {navIems: navItem[]} props 
  * @returns Navigation component
  */
-export default function Navigation ({navItems}) {
+export default function Navigation ({navItems}: {navItems: NavItemProps[]}) {
     return (
         <nav>
             {

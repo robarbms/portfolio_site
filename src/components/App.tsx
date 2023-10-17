@@ -5,6 +5,9 @@ import WorkExperience from './Experience/Experience'
 import Projects from './Projects/Projects'
 import Contact from './Contact/Contact'
 import Footer from './Footer/Footer'
+import { NavItemProps } from './Home/NavItem'
+import '../styles/site.css'
+
 
 /**
  * Renders the basic shell for the site.
@@ -31,7 +34,7 @@ export default function App () {
     ];
 
     return (
-        <div class="page">
+        <div className="page">
             <Header navItems={navItems}></Header>
             <Home></Home>
             <Projects></Projects>

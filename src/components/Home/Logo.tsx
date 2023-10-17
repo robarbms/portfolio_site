@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../../styles/logo.css'
+import '../../styles/logo.css'
 
 /**
  * Site logo, RB

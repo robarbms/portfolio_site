@@ -1,6 +1,7 @@
 import React from 'react'
+import { ProjectAttr } from '../../data/ProjectList'
 
-export default function Project (props) {
+export default function Project (props: ProjectAttr) {
     const {title, tech, images, description_short, links} = props;
     let style = {};
     if (images && images.length > 0) {
@@ -10,7 +11,7 @@ export default function Project (props) {
     }
     return (
     <div className="project">
-        <div class="img_wrap" style={style}>
+        <div className="img_wrap" style={style}>
         </div>
         <div className="proj_content">
             <h3>{title}</h3>

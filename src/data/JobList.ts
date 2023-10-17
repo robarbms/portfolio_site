@@ -1,7 +1,19 @@
+export type JobListing = {
+    startDate: string,
+    endDate: string,
+    title: string,
+    company: string,
+    work: string[],
+    tech: {
+        title: string,
+        icon?: string
+    }[]
+}
+
 /**
  * Data encapsulation of my work experience
  */
-const JobList = [
+const JobList: JobListing[] = [
     {
         startDate: 'Jun 2020',
         endDate: 'Dec 2022',

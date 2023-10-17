@@ -52,7 +52,7 @@ section {
 }
 
 .center {
-    max-width: calc(var(--content-width) - 2 * var(--spacing));
+    max-width: 1260px;
     margin: auto;
 }
 

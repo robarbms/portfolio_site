@@ -1,6 +1,11 @@
 import React from 'react'
 
-export default function MailSubmit ({isValidEmail, isValidMessage}) {
+export type MailSubmitArgs = {
+    isValidEmail: boolean,
+    isValidMessage: boolean
+}
+
+export default function MailSubmit ({isValidEmail, isValidMessage}: MailSubmitArgs) {
     let title = "Email sent!";
     let notification = "Thank you for your message. I will get back to you soon."
     let error = false;

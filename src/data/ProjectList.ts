@@ -5,7 +5,26 @@ import data_vis from '../assets/data-vis.webp'
 import masonry from '../assets/masonry.webp'
 import covid_tracker from '../assets/covid_tracker_preview.webp'
 
-const ProjectList = [
+export type ProjectAttr = {
+    title: string,
+    description_short: string,
+    description?: string,
+    tech: {
+        title: string,
+        icon?: string
+    }[],
+    links: {
+        link: string,
+        type: 'Demo' | 'Source' | 'Article',
+        text: string
+    }[],
+    images: {
+        img: string,
+        alt: string
+    }[]
+}
+
+const ProjectList: ProjectAttr[] = [
     {
         title: "News Carousel",
         description_short: "News carousel used for Edge new tab page and Windows 11. Custom web component built in the FAST open source library and deployed in Azure DevOps.",

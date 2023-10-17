@@ -1,14 +1,15 @@
 import React from 'react'
 import Logo from './Logo'
 import Navigation from './Navigation'
-import styles from '../../styles/Header.css'
+import { NavItemProps } from './NavItem'
+import '../../styles/Header.css'
 
 /**
  * Renders the site header with logo and navigation
  * @param {{navItems[]}} param0 
  * @returns Header component
  */
-export default function Header ({navItems}) {
+export default function Header ({navItems}: {navItems: NavItemProps[]}) {
     return (
     <header>
         <div className="center">
