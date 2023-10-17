@@ -5,8 +5,10 @@
   "main": "index.br",
   "scripts": {
     "test": "jest",
-    "build": "webpack",
-    "start": "http-server ./dist"
+    "build": "webpack --mode=development",
+    "prod-build": "webpack --mode=production",
+    "start": "http-server ./dev",
+    "prod-start": "http-server ./dist"
   },
   "repository": {
     "type": "git",

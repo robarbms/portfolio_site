@@ -4,11 +4,41 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 
-module.exports = {
+
+module.exports = (env, argv) => {
+  const opts = {
+    production: {
+      path: 'dist',
+      cssloader: [MiniCssExtractPlugin.loader, 'css-loader'],
+      htmlmin: {
+        collapseWhitespace: true,
+        removeComments: true,
+      },
+      optimization: {
+        minimizer: [
+          new TerserPlugin(),
+          new CssMinimizerPlugin(),
+        ],
+      },
+      watch: false
+    },
+    development: {
+      path: 'dev',
+      cssloader: [MiniCssExtractPlugin.loader, 'css-loader'],
+      htmlmin: {},
+      optimization: {},
+      watch: true
+    }
+  }
+  const {mode} = argv;
+  const options = opts[mode];
+
+  return {
   entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, options.path),
     filename: 'bundle.js',
+    clean: true
   },
   module: {
     rules: [
@@ -21,7 +51,7 @@ module.exports = {
         },
         {
             test: /\.css$/,
-            use: [MiniCssExtractPlugin.loader, 'css-loader'],
+            use: options.cssloader,
         },
         {
             test: /\.(jpg|png|svg|gif|ttf|pdf|webp)$/,
@@ -37,25 +67,17 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',
-      minify: {
-        collapseWhitespace: true,
-        removeComments: true,
-      },
+      minify: options.htmlmin,
       favicon: './public/favicon.ico'
     }),
     new MiniCssExtractPlugin({
       filename: 'styles.css',
     }),
-
   ],
-  optimization: {
-    minimizer: [
-      new TerserPlugin(),
-      new CssMinimizerPlugin(),
-    ],
-  },
+  optimization: options.optimization,
   resolve: {
     extensions: ['.tsx', '.ts', '.js']
   },
-  watch: true
-};
+  watch: options.watch
+}
+}
