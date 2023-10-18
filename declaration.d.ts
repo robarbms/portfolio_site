@@ -4,3 +4,4 @@ declare module '*.css' {
 };
 declare module '*.pdf';
 declare module '*.webp';
+declare module '*.svg';

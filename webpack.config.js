@@ -3,9 +3,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 
 module.exports = (env, argv) => {
+  const is_report = argv.performanceHints && argv.performanceHints == 'warning';
+
   const styleTypings = {
     loader: 'typings-for-css-modules-loader',
     options: {
@@ -13,33 +16,48 @@ module.exports = (env, argv) => {
       namedExport: true
     }
   };
-  const opts = {
-    production: {
-      path: 'dist',
-      cssloader: ['style-loader', 'css-loader'],
-      htmlmin: {
-        collapseWhitespace: true,
-        removeComments: true,
-      },
-      optimization: {
-        minimizer: [
-          new TerserPlugin(),
-          new CssMinimizerPlugin(),
-        ],
-        minimize: true
-      },
-      watch: false
+  const plugins = (htmlmin) => [
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+      minify: htmlmin,
+      favicon: './public/favicon.ico'
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'styles.css',
+    }),
+  ];
+
+  const prod_opts = {
+    path: 'dist',
+    cssloader: ['style-loader', 'css-loader'],
+    optimization: {
+      minimizer: [
+        new TerserPlugin(),
+        new CssMinimizerPlugin(),
+      ],
+      minimize: true
     },
+    plugins: plugins({
+      collapseWhitespace: true,
+      removeComments: true,
+    }),
+    watch: false
+  };
+  const opts = {
+    production: prod_opts,
     development: {
       path: 'dev',
       cssloader: ['style-loader', 'css-loader'],
-      htmlmin: {},
       optimization: {},
+      plugins: plugins({}),
       watch: true
-    }
+    },
+    report: Object.assign({}, prod_opts, {
+      plugins: [...prod_opts.plugins, new BundleAnalyzerPlugin()]
+    })
   }
   const {mode} = argv;
-  const options = opts[mode];
+  const options = opts[is_report ? "report" : mode];
 
   return {
   entry: './src/index.tsx',
@@ -65,16 +83,7 @@ module.exports = (env, argv) => {
       },
   ],
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './public/index.html',
-      minify: options.htmlmin,
-      favicon: './public/favicon.ico'
-    }),
-    new MiniCssExtractPlugin({
-      filename: 'styles.css',
-    }),
-  ],
+  plugins: options.plugins,
   optimization: options.optimization,
   resolve: {
     extensions: ['.tsx', '.ts', '.js']

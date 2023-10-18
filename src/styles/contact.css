@@ -65,6 +65,17 @@
     margin: 0 var(--spacing) 0 0;
 }
 
+.contact-item svg {
+    width: 32px;
+    height: 32px;
+    fill: var(--font-color);
+}
+
+.contact-item:hover svg {
+    fill: var(--accent);
+    animation: svg_pulse 1s infinite;
+}
+
 .contact_confirm {
     position: absolute;
     background: var(--background3);
@@ -84,6 +95,12 @@
     100% {
         opacity: 0;
     }
+}
+
+@keyframes svg_pulse {
+    0% { text-shadow: none;}
+    50% { filter: drop-shadow( 0 0 10px var(--accent)); }
+    100% { text-shadow: none;}
 }
 
 @media (max-width: 1000px) {

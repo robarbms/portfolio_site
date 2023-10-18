@@ -1,11 +1,11 @@
-import { faPhone, faEnvelope, IconDefinition } from '@fortawesome/free-solid-svg-icons'
-import { IconProp } from '@fortawesome/fontawesome-svg-core'
-
+/**
+ * Data used for other methods to contact me
+ */
 export type MoreContactAttr = {
     title: string,
     text: string,
     link: string,
-    icon?: IconProp,
+    icon?: string,
     devIcon?: string,
 }
 
@@ -14,13 +14,13 @@ const MoreContactList: MoreContactAttr[] = [
         title: "Telephone",
         text: "(425) 736-0936",
         link: "tel:4257360936",
-        icon: faPhone,
+        icon: "phone",
     },
     {
         title: "Email",
         text: "rob@robjbarber.com",
         link: "mailto:rob@robjbarber.com",
-        icon: faEnvelope,
+        icon: "email",
     },
     {
         title: "LinkedIn",

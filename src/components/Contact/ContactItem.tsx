@@ -1,7 +1,7 @@
 import React from 'react'
-import { FontAwesomeIcon, FontAwesomeIconProps } from '@fortawesome/react-fontawesome'
-import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import { MoreContactAttr } from '../../data/MoreContactList'
+import PhoneIcon from './PhoneIcon'
+import MailIcon from './MailIcon'
 
 /**
  * Rendering for a contact item such as phone number, email, etc.
@@ -12,7 +12,7 @@ export default function ContactItem ({title, text, link, icon, devIcon}: MoreCon
     return(
         <div className="contact-item">
             <a href={link}>
-                {icon ? <FontAwesomeIcon icon={icon} /> : <i className={"devicon " + icon}></i>}
+                {icon && icon=="phone" ? <PhoneIcon /> : icon && icon == "email" ? <MailIcon /> : <i className={"devicon " + devIcon}></i>}
                 <span className="contact-text">{text}</span>
             </a>
         </div>
