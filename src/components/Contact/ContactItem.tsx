@@ -8,7 +8,7 @@ import MailIcon from './MailIcon'
  * @param {*} param0 
  * @returns Contact Item component
  */
-export default function ContactItem ({title, text, link, icon, devIcon}: MoreContactAttr) {
+export default function ContactItem ({title, text, link, icon, devIcon}: MoreContactAttr): React.JSX.Element {
     return(
         <div className="contact-item">
             <a href={link}>

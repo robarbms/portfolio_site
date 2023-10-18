@@ -1,10 +1,12 @@
-export type CodeSite = {
+// Code site type
+export type CodeSiteAttr = {
     title: string,
     link: string,
     icon?: string
 }
 
-const CodeSiteList: CodeSite[] = [
+// List of sites that I contribute to
+const CodeSiteList: CodeSiteAttr[] = [
     {
         title: "GitHub",
         link: "https://github.com/robarbms"

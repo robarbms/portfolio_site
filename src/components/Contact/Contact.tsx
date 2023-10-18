@@ -35,19 +35,19 @@ function getValidMessage (message: string): boolean {
  * @param contact - A list of more ways to contact
  * @returns Contact component
  */
-export default function Contact ({contacts}: {contacts: MoreContactAttr[]}) {
-    const [mailSent, setMailSent] = useState(false);
-    const form = useRef(null);
-    const isValidEmail = useRef(false);
-    const isValidMessage = useRef(false);
+export default function Contact ({contacts}: {contacts: MoreContactAttr[]}): React.JSX.Element {
+    const [mailSent, setMailSent]: [boolean, React.Dispatch<React.SetStateAction<boolean>>] = useState(false);
+    const form: React.MutableRefObject<HTMLFormElement | null> = useRef(null);
+    const isValidEmail: React.MutableRefObject<boolean> = useRef(false);
+    const isValidMessage: React.MutableRefObject<boolean> = useRef(false);
 
-    function sendEmail (evnt: React.FormEvent) {
+    function sendEmail (evnt: React.FormEvent): void {
         evnt.preventDefault();
-        let timeout = 3000;
+        let timeout: number = 3000;
         if(!form || !form.current) return;
         const formelm: HTMLFormElement = form.current;
-        let email = formelm.user_email.value;
-        let message = formelm.message.value;
+        let email: string = formelm.user_email.value;
+        let message: string = formelm.message.value;
         isValidEmail.current = getValidEmail(email);
         isValidMessage.current = getValidMessage(message);
 
@@ -98,7 +98,7 @@ export default function Contact ({contacts}: {contacts: MoreContactAttr[]}) {
                     </form>
                     <div className="contact_info">
                         <h3>Other ways to connect with me.</h3>
-                        {contacts.map((contact, index) => (
+                        {contacts.map((contact: MoreContactAttr, index: number) => (
                             <ContactItem key={index} {...contact} />
                         ))}
                     </div>

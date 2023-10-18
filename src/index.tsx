@@ -3,9 +3,11 @@ import { createRoot } from 'react-dom/client'
 import { Provider } from 'react-redux'
 import App from './components/App'
 
-const root = document.getElementById('root');
+// div element with the root id
+const root:HTMLElement | null = document.getElementById('root');
 
-if(root) {
+// Attach the App component to the #root element
+if (root !== null) {
   const rootTarget = createRoot(root);
   rootTarget.render(
       <App />

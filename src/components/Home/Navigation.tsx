@@ -1,13 +1,14 @@
 import React from 'react'
 import resume from '../../assets/Rob Barber.pdf'
-import NavItem, { NavItemProps } from './NavItem'
+import NavItem from './NavItem'
+import { NavItemAttr } from '../../data/NavList';
 
 /**
  * Rendering for a list of navigation items
- * @param {navIems: navItem[]} props 
+ * @param {navIems: navItem[]} a list of navigation links 
  * @returns Navigation component
  */
-export default function Navigation ({navItems}: {navItems: NavItemProps[]}) {
+export default function Navigation ({navItems}: {navItems: NavItemAttr[]}): React.JSX.Element {
     return (
         <nav>
             {

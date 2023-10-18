@@ -1,14 +1,20 @@
 import React from 'react'
 
-export type MailSubmitArgs = {
+// Props for a mail submit component
+export type MailSubmitProps = {
     isValidEmail: boolean,
     isValidMessage: boolean
 }
 
-export default function MailSubmit ({isValidEmail, isValidMessage}: MailSubmitArgs) {
-    let title = "Email sent!";
-    let notification = "Thank you for your message. I will get back to you soon."
-    let error = false;
+/**
+ * Confirmation popup when a mail is submitted
+ * @param props - isValidEmail, isValidMessage 
+ * @returns MailSubmit component
+ */
+export default function MailSubmit ({isValidEmail, isValidMessage}: MailSubmitProps): React.JSX.Element {
+    let title: string = "Email sent!";
+    let notification: string = "Thank you for your message. I will get back to you soon."
+    let error: boolean = false;
     if (!isValidEmail || !isValidMessage) {
         error = true;
         title = "Error sending message!"
@@ -22,6 +28,7 @@ export default function MailSubmit ({isValidEmail, isValidMessage}: MailSubmitAr
             notification = "Can't send your message without a valid email address."
         }
     }
+
     return (
         <div className="contact_confirm {error ? ' mail_error' : ''}">
             <h2>{title}</h2>

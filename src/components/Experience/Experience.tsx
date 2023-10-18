@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import resume from '../../assets/Rob Barber.pdf'
-import {JobListing} from '../../data/JobList'
+import { JobListing } from '../../data/JobList'
 import Job from './Job'
 import '../../styles/experience.css'
 
@@ -9,8 +9,8 @@ import '../../styles/experience.css'
  * @param {*} props 
  * @returns Work Experience component
  */
-export default function WorkExperience ({jobs}: {jobs: JobListing[]}) {
-    const exp_container = useRef(null);
+export default function WorkExperience ({jobs}: {jobs: JobListing[]}): React.JSX.Element {
+    const exp_container: React.MutableRefObject<HTMLDivElement | null> = useRef(null);
 
     /**
      * Triggers animation of the work experience when scrolled into view
@@ -18,7 +18,7 @@ export default function WorkExperience ({jobs}: {jobs: JobListing[]}) {
     const animateExp = () => {
         const container: HTMLDivElement | null = exp_container.current;
         if (container !== null) {
-            const scrollTop = (container as HTMLDivElement).getBoundingClientRect().top;
+            const scrollTop: number = (container as HTMLDivElement).getBoundingClientRect().top;
             if(scrollTop < window.innerHeight / 2) {
                 (container as HTMLDivElement).classList.add('animate');
             }
@@ -43,7 +43,7 @@ export default function WorkExperience ({jobs}: {jobs: JobListing[]}) {
                 <div className="work_area">
                     <div className="timeline">
                     </div>
-                    {jobs.map((job, index) => <Job key={index} {...job} />)}
+                    {jobs.map((job: JobListing, index: number) => <Job key={index} {...job} />)}
                     <div className="date-end start">Sep 2002</div>
                 </div>
                 <h2 className="cert_header">Certificates</h2>
