@@ -12,7 +12,7 @@ export default function Home () {
     <div className={`${animate.current ? 'animate' : ''} home`}>
         <div className="home-background"></div>
         <h1><span>Hello</span><span className="load-in">, I'm <span className="name">Rob Barber</span></span></h1>
-        <span className="dev">a full stack developer</span>
+        <span className="dev">a software developer</span>
         <div>
             <a href="#contact" className="call-to-action button no-hover">
                 <span>Contact me</span>
