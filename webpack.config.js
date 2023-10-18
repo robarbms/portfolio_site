@@ -26,6 +26,7 @@ module.exports = (env, argv) => {
           new TerserPlugin(),
           new CssMinimizerPlugin(),
         ],
+        minimize: true
       },
       watch: false
     },
