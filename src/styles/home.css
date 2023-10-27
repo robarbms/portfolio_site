@@ -65,7 +65,7 @@
     white-space: nowrap;
     opacity: 0;
     width: 0;
-    animation: devslidein 2s 3s forwards;
+    animation: devslidein 1.5s 3s forwards;
 }
 
 @keyframes fadein {
@@ -80,7 +80,7 @@
 
 @keyframes devslidein {
     0% {width: 0;opacity: 0;}
-    100% {width: 547px;opacity: 1;}
+    100% {width: 620px;opacity: 1;}
 }
 
 .scroll {
@@ -154,7 +154,7 @@
 
 @media (max-width: 800px) {
     .home {
-        font-size: 18px;
+        font-size: 24px;
         overflow: hidden;
     }
     .load-in {

@@ -1,10 +1,10 @@
+const Dotenv = require('dotenv-webpack');
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-
 
 module.exports = (env, argv) => {
   const is_report = argv.performanceHints && argv.performanceHints == 'warning';
@@ -17,6 +17,7 @@ module.exports = (env, argv) => {
     }
   };
   const plugins = (htmlmin) => [
+    new Dotenv(),
     new HtmlWebpackPlugin({
       template: './public/index.html',
       minify: htmlmin,

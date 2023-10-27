@@ -5,6 +5,10 @@ import MailSubmit from "./MailSubmit"
 import { MoreContactAttr } from '../../data/MoreContactList'
 import '../../styles/contact.css'
 
+const serviceID: string = process.env.EMAILJS_SERVICE_ID || "";
+const templateID: string = process.env.EMAILJS_TEMPLATE_ID || "";
+const publicKey: string = process.env.EMAILJS_PUBLIC_KEY || "";
+
 /**
  * Checks that the provided email address looks like an email address
  * @param email - string representation of an email address
@@ -52,7 +56,7 @@ export default function Contact ({contacts}: {contacts: MoreContactAttr[]}): Rea
         isValidMessage.current = getValidMessage(message);
 
         if(isValidEmail.current && isValidMessage.current && !mailSent) {
-            emailjs.sendForm('service_8ej6il4', 'template_0q3sujl', form.current, 'gDDSsv52CVL0p2sKS')
+            emailjs.sendForm(serviceID, templateID, form.current, publicKey)
               .then((result) => {
                   console.log(result.text);
               }, (error) => {
